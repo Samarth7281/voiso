@@ -19,7 +19,7 @@ const carousels = [
     badge: "Intelligent workflows",
     title: "Smarter flows,faster resolutions",
     description:
-      "Build and automate interaction flows with Voiso’s no-code interface. Set up IVR menus, intelligent routing, and chatbot interactions to ensure fast, seamless customer support.",
+      "Build and automate interaction flows with Voiso's no-code interface. Set up IVR menus, intelligent routing, and chatbot interactions to ensure fast, seamless customer support.",
     buttonText: "Explore",
     image: "carousel2.png",
     bgColor: "#088569",
@@ -49,8 +49,8 @@ const carousels = [
 
 const CarouselSection = () => {
   return (
-    <div className="w-full flex justify-center py-12">
-      <div className="relative w-[1300px] h-[531.2px]">
+    <div className="w-full flex justify-center py-12 px-4">
+      <div className="relative w-full max-w-[1300px] lg:h-[531.2px]">
         <Swiper
           modules={[Navigation, Pagination]}
           slidesPerView={1}
@@ -68,17 +68,17 @@ const CarouselSection = () => {
           {carousels.map((slide, index) => (
             <SwiperSlide key={index}>
               <div
-                className="w-full h-full flex flex-col lg:flex-row rounded-[55px] overflow-hidden shadow-md"
+                className="w-full h-full flex flex-col lg:flex-row rounded-3xl lg:rounded-[55px] overflow-hidden shadow-md"
                 style={{ backgroundColor: slide.bgColor }}
               >
                 {/* Left HTML content */}
                 <div
-                  className="w-full lg:w-1/2 p-8 flex flex-col justify-center"
+                  className="w-full lg:w-1/2 p-6 md:p-8 flex flex-col justify-center order-2 lg:order-1"
                   style={{ color: slide.textColor }}
                 >
                   <div className="mb-2">
                     <span
-                      className="text-sm font-normal uppercase tracking-wide border border-opacity-50 text-opacity-80 px-4 py-2 rounded-2xl inline-block"
+                      className="text-xs md:text-sm font-normal uppercase tracking-wide border border-opacity-50 text-opacity-80 px-3 py-1 md:px-4 md:py-2 rounded-2xl inline-block"
                       style={{
                         color: slide.textColor,
                         borderColor: slide.textColor,
@@ -90,13 +90,13 @@ const CarouselSection = () => {
                   </div>
 
                   <h2
-                    className="text-3xl lg:text-4xl font-bold mb-4"
+                    className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4"
                     style={{ color: slide.textColor }}
                   >
                     {slide.title}
                   </h2>
                   <p
-                    className="text-base lg:text-lg mb-6"
+                    className="text-sm md:text-base lg:text-lg mb-6"
                     style={{ color: slide.textColor, opacity: 0.7 }}
                   >
                     {slide.description}
@@ -114,7 +114,7 @@ const CarouselSection = () => {
                 </div>
 
                 {/* Right Image */}
-                <div className="w-full lg:w-1/2 h-full">
+                <div className="w-full lg:w-1/2 h-64 lg:h-full order-1 lg:order-2">
                   <img
                     src={slide.image}
                     alt={slide.title}
@@ -129,7 +129,7 @@ const CarouselSection = () => {
         </Swiper>
 
         {/* Custom Pagination Dots */}
-        <div className="swiper-pagination absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10"></div>
+        <div className="swiper-pagination absolute !bottom-6 lg:!bottom-4 left-1/2 transform -translate-x-1/2 z-10"></div>
       </div>
     </div>
   );
