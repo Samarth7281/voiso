@@ -170,7 +170,7 @@ const Integrations = () => {
         <div className="w-full max-w-[1262px] mx-auto bg-[#0b0d14] rounded-[32px] md:rounded-[55px] p-4 md:p-12">
           <div className="w-full max-w-[752px] mx-auto text-center">
             {/* Text Content */}
-            <h1 className="text-4xl md:text-[64px] mb-2 bg-gradient-to-r from-[#FF2F80] via-[#FF2F80] to-[#438CFF] bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-[64px] mb-2 bg-gradient-to-r from-[#FF2F80] via-[#FF2F80] to-[#438CFF] bg-clip-text text-transparent leading-none">
               Get started in less than 24 hours
             </h1>
 

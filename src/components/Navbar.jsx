@@ -2,10 +2,17 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Solutions from "../pages/Solutions";
 import { Link, useNavigate } from "react-router-dom";
+import AboutSubMenu from "../pages/AboutSubMenu";
 
-const Navbar = ({ showSolutions, setShowSolutions }) => {
+const Navbar = ({
+  showSolutions,
+  setShowSolutions,
+  showAbout,
+  setShowAbout,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showMobileSolutions, setShowMobileSolutions] = useState(false);
+  const [showMobileAbout, setShowMobileAbout] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,6 +29,7 @@ const Navbar = ({ showSolutions, setShowSolutions }) => {
   // Helper to close submenu on navigation
   const handleNavClick = (path) => {
     setShowSolutions(false);
+    setShowAbout(false);
     setIsOpen(false);
     navigate(path);
   };
@@ -42,7 +50,10 @@ const Navbar = ({ showSolutions, setShowSolutions }) => {
           {/* Center: Desktop Navigation Menu */}
           <div className="hidden lg:flex flex-grow justify-center items-center space-x-6 text-[16px] font-[550] text-black">
             <span
-              onClick={() => setShowSolutions(!showSolutions)}
+              onClick={() => {
+                setShowSolutions(!showSolutions);
+                setShowAbout(false);
+              }}
               className={`cursor-pointer flex items-center gap-1 transition-colors relative 
     ${showSolutions ? "text-[#236ADC]" : "text-black hover:text-[#FF2F80]"}`}
             >
@@ -60,7 +71,7 @@ const Navbar = ({ showSolutions, setShowSolutions }) => {
                 <path d="M19 9l-7 7-7-7" />
               </svg>
             </span>
-
+            
             <span
               className="cursor-pointer hover:text-[#FF2F80] transition-colors"
               onClick={() => handleNavClick("/integrations")}
@@ -79,8 +90,27 @@ const Navbar = ({ showSolutions, setShowSolutions }) => {
             >
               Partners
             </span>
-            <span className="cursor-pointer hover:text-[#FF2F80] transition-colors">
+            <span
+              className={`cursor-pointer flex items-center gap-1 transition-colors relative ${
+                showAbout ? "text-[#236ADC]" : "text-black hover:text-[#FF2F80]"
+              }`}
+              onClick={() => {
+                setShowAbout(!showAbout);
+                setShowSolutions(false);
+              }}
+            >
               About
+              <svg
+                className={`w-3 h-3 transition-transform ${
+                  showAbout ? "rotate-180" : "rotate-0"
+                }`}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
             </span>
           </div>
 
@@ -129,7 +159,6 @@ const Navbar = ({ showSolutions, setShowSolutions }) => {
               onClick={() => setShowMobileSolutions((prev) => !prev)}
             >
               <span>Solutions</span>
-              {/* Arrow icon */}
               <svg
                 className={`w-3 h-3 ml-2 transition-transform ${
                   showMobileSolutions ? "rotate-90" : "rotate-0"
@@ -142,11 +171,32 @@ const Navbar = ({ showSolutions, setShowSolutions }) => {
                 <path d="M9 5l7 7-7 7" />
               </svg>
             </span>
-            {/* Dropdown for Solutions */}
             {showMobileSolutions && (
               <div className="flex flex-col items-center space-y-2 py-2">
-                {/* Example first column items, replace with actual items as needed */}
                 <Solutions />
+              </div>
+            )}
+            {/* About with arrow and dropdown */}
+            <span
+              className="cursor-pointer hover:text-[#FF2F80] transition-colors py-2 flex items-center justify-between"
+              onClick={() => setShowMobileAbout((prev) => !prev)}
+            >
+              <span>About</span>
+              <svg
+                className={`w-3 h-3 ml-2 transition-transform ${
+                  showMobileAbout ? "rotate-90" : "rotate-0"
+                }`}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+            {showMobileAbout && (
+              <div className="flex flex-col items-center space-y-2 py-2">
+                <AboutSubMenu />
               </div>
             )}
             {/* Other menu items */}
@@ -167,9 +217,6 @@ const Navbar = ({ showSolutions, setShowSolutions }) => {
               onClick={() => handleNavClick("/partners")}
             >
               Partners
-            </span>
-            <span className="cursor-pointer hover:text-[#FF2F80] transition-colors py-2">
-              About
             </span>
           </div>
           <div className="pt-4 mt-4 border-t border-gray-200 flex flex-col sm:flex-row gap-3">
