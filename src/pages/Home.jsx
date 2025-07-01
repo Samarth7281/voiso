@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Navbar from "../components/Navbar";
+import React from "react";
 import Footer from "../components/Footer";
 import CarouselSection from "../components/Carousel";
 import Solutions from "./Solutions";
@@ -22,24 +21,55 @@ const sectorIcons = {
   Transportation: "truck.svg",
 };
 
-const Home = () => {
-  const [showSolutions, setShowSolutions] = useState(false);
+const carousels = [
+  {
+    badge: "Embrace AI",
+    title: "Elevate engagement with AI-powered tools",
+    description:
+      "Boost call volume by 400% with our AI Predictive Dialer and gain deep insights with speech analytics, transcriptions, sentiment analysis, summaries, and more — all available in 10+ languages.",
+    buttonText: "Explore",
+    image: "carousel1.png",
+    bgColor: "#073469",
+    textColor: "#c8e0fc",
+  },
+  {
+    badge: "Intelligent workflows",
+    title: "Smarter flows,faster resolutions",
+    description:
+      "Build and automate interaction flows with Voiso's no-code interface. Set up IVR menus, intelligent routing, and chatbot interactions to ensure fast, seamless customer support.",
+    buttonText: "Explore",
+    image: "carousel2.png",
+    bgColor: "#088569",
+    textColor: "#a3ffd2",
+  },
+  {
+    badge: "Constant awareness",
+    title: "Track performance in real time",
+    description:
+      "Monitor agent activity, call volumes, and queue statuses with customizable dashboards. Get instant insights to optimize workflows, improve efficiency, and make data-driven decisions.",
+    buttonText: "Explore",
+    image: "carousel3.png",
+    bgColor: "#ffd4c2",
+    textColor: "#d64000",
+  },
+  {
+    badge: "CRM integrations",
+    title: "Sync contacts and track interactions",
+    description:
+      "Connect Voiso with HubSpot, Salesforce, Zoho and more to automate workflows, sync customer data, and enhance productivity. Reduce manual tasks and ensure a smooth, connected experience for your team.",
+    buttonText: "Learn more",
+    image: "carousel4.png",
+    bgColor: "#000000",
+    textColor: "#ffffff",
+  },
+];
 
+// Accept showSolutions and setShowSolutions as props for compatibility
+const Home = (props) => {
   return (
     <div>
-      <Navbar />
-      <Navbar
-        showSolutions={showSolutions}
-        setShowSolutions={setShowSolutions}
-      />
-
-      {/* Submenu: Appears below navbar */}
-      {showSolutions && (
-        <div className="absolute top-[4.3125rem] left-0 w-full z-40 animate-slide-down">
-          <Solutions />
-        </div>
-      )}
-      <main className={`w-full pt-[85px] ${showSolutions ? "filter blur-sm transition-all" : ""}`}>
+      {/* Main content */}
+      <main className="w-full">
         <div className="w-full">
           <div className="flex flex-col lg:flex-row mx-4 lg:mx-[128px] pt-8 lg:pt-[116px] pb-8 lg:pb-[22px]">
             <div className="w-full lg:w-[600.4px] h-auto lg:h-[505.4px] mb-4 lg:mb-0 lg:pr-[32px] space-y-4 text-center lg:text-left">
@@ -108,7 +138,7 @@ const Home = () => {
             </div>
           ))}
         </div>
-        <CarouselSection />
+        <CarouselSection carousels={carousels} />
 
         <div className="w-full">
           <div className="flex flex-col lg:flex-row mx-4 lg:mx-[128px] pt-4 lg:pt-4">
@@ -153,7 +183,7 @@ const Home = () => {
                 AI Predictive Dialer
               </h1>
               <p className="text-lg md:text-[22px] text-[#6E6E6E]">
-                Boost contact rates and agent productivity with Voiso’s
+                Boost contact rates and agent productivity with Voiso's
                 Predictive Dialer. The dialer intelligently dials numbers based
                 on agent availability, reducing idle time and maximizing
                 connections to drive sales and efficiency.
@@ -213,7 +243,7 @@ const Home = () => {
                 Flow Builder
               </h1>
               <p className="text-lg md:text-[22px] text-[#6E6E6E]">
-                Easily create custom call flows with Voiso’s no-code,
+                Easily create custom call flows with Voiso's no-code,
                 drag-and-drop Flow Builder. Design IVR menus, set up intelligent
                 routing, and integrate with your CRM for a seamless customer
                 experience. Connect voice, chat, and messaging channels for
@@ -336,7 +366,7 @@ const Home = () => {
               </h1>
               <p className="text-lg md:text-[22px] text-[#6E6E6E]">
                 Sync with your favorite apps in just a few clicks to leverage
-                the power of Voiso’s contact center features.
+                the power of Voiso's contact center features.
               </p>
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
                 <button className="bg-white text-[#073469] border border-[#c2c3c4] rounded-full px-6 py-2 font-semibold text-[16px] transition-colors duration-300 ease-in-out hover:text-[#FF2F80] hover:border-[#FF2F80] hover:bg-gray-100">

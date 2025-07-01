@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Solutions from "../pages/Solutions";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = ({ showSolutions, setShowSolutions }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showMobileSolutions, setShowMobileSolutions] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isOpen) {
@@ -17,16 +19,23 @@ const Navbar = ({ showSolutions, setShowSolutions }) => {
     };
   }, [isOpen]);
 
+  // Helper to close submenu on navigation
+  const handleNavClick = (path) => {
+    setShowSolutions(false);
+    setIsOpen(false);
+    navigate(path);
+  };
+
   return (
     <>
       <div className="fixed top-0 left-0 z-50 w-full h-[4.3125rem] bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
           {/* Left side: Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0" onClick={() => navigate("/")}>
             <img
               src="https://voiso.com/wp-content/themes/voiso/static/images/logo-voiso-color.svg"
               alt="Voiso Logo"
-              className="h-5 sm:h-6 w-auto"
+              className="h-5 sm:h-6 w-auto cursor-pointer"
             />
           </div>
 
@@ -52,13 +61,22 @@ const Navbar = ({ showSolutions, setShowSolutions }) => {
               </svg>
             </span>
 
-            <span className="cursor-pointer hover:text-[#FF2F80] transition-colors">
+            <span
+              className="cursor-pointer hover:text-[#FF2F80] transition-colors"
+              onClick={() => handleNavClick("/integrations")}
+            >
               Integrations
             </span>
-            <span className="cursor-pointer hover:text-[#FF2F80] transition-colors">
+            <span
+              className="cursor-pointer hover:text-[#FF2F80] transition-colors"
+              onClick={() => handleNavClick("/pricing")}
+            >
               Pricing
             </span>
-            <span className="cursor-pointer hover:text-[#FF2F80] transition-colors">
+            <span
+              className="cursor-pointer hover:text-[#FF2F80] transition-colors"
+              onClick={() => handleNavClick("/partners")}
+            >
               Partners
             </span>
             <span className="cursor-pointer hover:text-[#FF2F80] transition-colors">
@@ -132,13 +150,22 @@ const Navbar = ({ showSolutions, setShowSolutions }) => {
               </div>
             )}
             {/* Other menu items */}
-            <span className="cursor-pointer hover:text-[#FF2F80] transition-colors py-2">
+            <span
+              className="cursor-pointer hover:text-[#FF2F80] transition-colors py-2"
+              onClick={() => handleNavClick("/integrations")}
+            >
               Integrations
             </span>
-            <span className="cursor-pointer hover:text-[#FF2F80] transition-colors py-2">
+            <span
+              className="cursor-pointer hover:text-[#FF2F80] transition-colors py-2"
+              onClick={() => handleNavClick("/pricing")}
+            >
               Pricing
             </span>
-            <span className="cursor-pointer hover:text-[#FF2F80] transition-colors py-2">
+            <span
+              className="cursor-pointer hover:text-[#FF2F80] transition-colors py-2"
+              onClick={() => handleNavClick("/partners")}
+            >
               Partners
             </span>
             <span className="cursor-pointer hover:text-[#FF2F80] transition-colors py-2">

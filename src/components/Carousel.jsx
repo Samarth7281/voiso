@@ -4,50 +4,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const carousels = [
-  {
-    badge: "Embrace AI",
-    title: "Elevate engagement with AI-powered tools",
-    description:
-      "Boost call volume by 400% with our AI Predictive Dialer and gain deep insights with speech analytics, transcriptions, sentiment analysis, summaries, and more — all available in 10+ languages.",
-    buttonText: "Explore",
-    image: "carousel1.png",
-    bgColor: "#073469",
-    textColor: "#c8e0fc",
-  },
-  {
-    badge: "Intelligent workflows",
-    title: "Smarter flows,faster resolutions",
-    description:
-      "Build and automate interaction flows with Voiso's no-code interface. Set up IVR menus, intelligent routing, and chatbot interactions to ensure fast, seamless customer support.",
-    buttonText: "Explore",
-    image: "carousel2.png",
-    bgColor: "#088569",
-    textColor: "#a3ffd2",
-  },
-  {
-    badge: "Constant awareness",
-    title: "Track performance in real time",
-    description:
-      "Monitor agent activity, call volumes, and queue statuses with customizable dashboards. Get instant insights to optimize workflows, improve efficiency, and make data-driven decisions.",
-    buttonText: "Explore",
-    image: "carousel3.png",
-    bgColor: "#ffd4c2",
-    textColor: "#d64000",
-  },
-  {
-    badge: "CRM integrations",
-    title: "Sync contacts and track interactions",
-    description:
-      "Connect Voiso with HubSpot, Salesforce, Zoho and more to automate workflows, sync customer data, and enhance productivity. Reduce manual tasks and ensure a smooth, connected experience for your team.",
-    buttonText: "Learn more",
-    image: "carousel4.png",
-    bgColor: "#000000",
-    textColor: "#ffffff",
-  },
-];
-
-const CarouselSection = () => {
+const CarouselSection = ({ carousels }) => {
+  if (!carousels || !Array.isArray(carousels)) return null;
   return (
     <div className="w-full flex justify-center py-12 px-4">
       <div className="relative w-full max-w-[1300px] lg:h-[531.2px]">
@@ -119,7 +77,9 @@ const CarouselSection = () => {
                     src={slide.image}
                     alt={slide.title}
                     className={`w-full h-full ${
-                      index === 3 ? "object-contain p-8" : "object-cover"
+                      index === 0 || index === 3
+                        ? "object-contain p-8"
+                        : "object-cover"
                     }`}
                   />
                 </div>

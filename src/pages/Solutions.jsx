@@ -2,7 +2,7 @@ import React from "react";
 
 const Solutions = () => {
   return (
-    <div className="relative w-full bg-white shadow-lg rounded-lg p-0 lg:p-0 lg:fixed lg:top-[68.8px] lg:bottom-[-445.237px] lg:w-[1520.8px] lg:h-[443.838px]">
+    <div className="w-full bg-white shadow-lg p-0 lg:p-0">
       <div className="flex flex-col lg:flex-row items-center lg:items-stretch w-full lg:mx-[128px] lg:w-[1264.8px] lg:h-full">
         <div className="w-full lg:w-[268.2px] h-auto p-4 lg:p-6 space-y-0 sm:space-y-1 flex-shrink-0 flex flex-col items-center lg:items-start">
           <button className="w-full flex justify-between items-center p-3 text-left hover:text-[#FF2F80] rounded transition-colors duration-400">
