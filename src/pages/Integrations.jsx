@@ -8,7 +8,7 @@ const card = [
     src: "icon-crm-calls.png",
     title: "Handle calls in CRM",
     description:
-      "Make and receive calls while in your CRM by using Voiso’s built-in softphone",
+      "Make and receive calls while in your CRM by using Voiso's built-in softphone",
     bgColor: "#073469",
     textColor: "#c8e0fc",
   },
@@ -16,7 +16,7 @@ const card = [
     src: "call.svg",
     title: "Use click-to-call",
     description:
-      "Initiate calls with a click by clicking the the contact’s phone number in your CRM.",
+      "Initiate calls with a click by clicking the the contact's phone number in your CRM.",
     bgColor: "#088569",
     textColor: "#a3ffd2",
   },
@@ -24,7 +24,7 @@ const card = [
     src: "icon-screen-pop.png",
     title: "Display info immediately",
     description:
-      "Upon entering a call, the contact’s details and history appear automatically.",
+      "Upon entering a call, the contact's details and history appear automatically.",
     bgColor: "#ffd4c2",
     textColor: "#d64000",
   },
@@ -40,7 +40,7 @@ const card = [
     src: "icon-call-summary.png",
     title: "Summarize calls with AI",
     description:
-      "Voiso’s AI Speech Analytics functions can generate call summaries in your CRM.",
+      "Voiso's AI Speech Analytics functions can generate call summaries in your CRM.",
     bgColor: "#391f44",
     textColor: "#cc66ef",
   },
@@ -90,9 +90,10 @@ const carousels = [
 const Integrations = () => {
   return (
     <>
+      {/* Hero Section */}
       <div className="w-full">
         <div className="flex flex-col lg:flex-row mx-4 lg:mx-[128px] pt-8 lg:pt-[116px] pb-8 lg:pb-[22px]">
-          <div className="w-full lg:w-[600.4px] h-auto lg:h-[505.4px] mb-4 lg:mb-0 lg:pr-[32px] space-y-4 text-center lg:text-left">
+          <div className="w-full lg:w-1/2 h-auto mb-4 lg:mb-0 lg:pr-8 space-y-4 text-center lg:text-left">
             {/* Left content */}
             <div className="inline-block p-[1px] bg-gradient-to-r from-[#FF2F80] to-blue-500 rounded-2xl ">
               <h3 className="text-[16px] text-[#1D1D1F] px-5 py-1 bg-white rounded-2xl w-max">
@@ -105,10 +106,10 @@ const Integrations = () => {
             </h1>
             <p className="text-lg md:text-[22px] text-[#6E6E6E]">
               Sync with your favorite apps in just a few clicks to leverage the
-              power of Voiso’s contact center features together with other
+              power of Voiso's contact center features together with other
               leading platforms.
             </p>
-            <div className="relative w-full max-w-md ">
+            <div className="relative w-full max-w-md mx-auto lg:mx-0">
               <input
                 type="text"
                 placeholder="Enter your work email"
@@ -124,24 +125,28 @@ const Integrations = () => {
               and Terms of Service.
             </p>
           </div>
-          <div className="w-full lg:w-[600.4px] h-auto lg:h-[505.4px] lg:pl-[32px] mt-8 lg:mt-16">
+          <div className="w-full lg:w-1/2 h-auto lg:pl-8 mt-8 lg:mt-16 flex items-center justify-center">
             {/* Right content */}
-            <img src="integrations_slider.png" alt="Voiso Platform" />
+            <img
+              src="integrations_slider.png"
+              alt="Voiso Platform"
+              className="w-full max-w-[500px] h-auto object-contain"
+            />
           </div>
         </div>
       </div>
 
-      <div className="mt-[88px] mb-[48px] mx-[128px] w-[1264.8px] h-[841.8px] bg-white">
-        <div className="w-[1200.8px] h-[697.8px] py-[72px] px-[32px] bg-white">
-          <div className="w-[1200.8px] h-[115.2px] text-center">
-            <h1 className="text-[64px] font-bold leading-tight">
+      {/* Cards Section */}
+      <div className="w-full max-w-[1264px] mx-auto mt-12 mb-12 px-4">
+        <div className="w-full py-12 px-0 md:px-8 bg-white">
+          <div className="w-full text-center mb-8">
+            <h1 className="text-4xl md:text-[64px] font-bold leading-tight">
               How Voiso levels up
               <br /> CRMs and other apps
             </h1>
           </div>
-          <div className="w-[1200.8px] h-[534.6px] bg-white mt-4 p-12">
-            {/* Content goes here */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 ">
+          <div className="w-full bg-white mt-4 p-0 md:p-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {card.map((item, index) => (
                 <Card
                   key={index}
@@ -156,21 +161,16 @@ const Integrations = () => {
           </div>
         </div>
       </div>
+
+      {/* Carousel Section */}
       <CarouselSection carousels={carousels} />
-      <div
-        className="mt-[64px]"
-        style={{ width: "1520.8px", height: "942.1px" }}
-      >
-        <div
-          className="h-[940.1px] mx-[128px] bg-[#0b0d14] rounded-[55px]"
-          style={{ width: "1262.8px" }}
-        >
-          <div
-            className="p-[48px] mx-[207.4px] text-center"
-            style={{ width: "752px", height: "844.1px" }}
-          >
+
+      {/* Contact Form Section */}
+      <div className="w-full max-w-[1520px] mx-auto mt-16 px-4">
+        <div className="w-full max-w-[1262px] mx-auto bg-[#0b0d14] rounded-[32px] md:rounded-[55px] p-4 md:p-12">
+          <div className="w-full max-w-[752px] mx-auto text-center">
             {/* Text Content */}
-            <h1 className="text-[64px] mb-2 bg-gradient-to-r from-[#FF2F80] via-[#FF2F80] to-[#438CFF] bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-[64px] mb-2 bg-gradient-to-r from-[#FF2F80] via-[#FF2F80] to-[#438CFF] bg-clip-text text-transparent">
               Get started in less than 24 hours
             </h1>
 
@@ -215,7 +215,7 @@ const Integrations = () => {
                   defaultValue="India"
                   className="p-3 rounded-lg bg-[#737373] border border-gray-400 text-white placeholder-gray-200"
                 >
-                  <option value="India" >India</option>
+                  <option value="India">India</option>
                   <option value="United States">United States</option>
                   <option value="United Kingdom">United Kingdom</option>
                   <option value="Canada">Canada</option>
@@ -267,7 +267,8 @@ const Integrations = () => {
                   By clicking "Submit", you agree that we may process your
                   personal data in accordance with our Privacy Policy and you
                   accept our Terms and Conditions.
-                  <br /><br/>* For licensed industries such as Healthcare, Telco,
+                  <br />
+                  <br />* For licensed industries such as Healthcare, Telco,
                   Collections, Fintech, and similar regulated sectors, we
                   require you to undergo a compliance procedure and submit
                   country-specific licenses and relevant company documentation
@@ -278,7 +279,7 @@ const Integrations = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
