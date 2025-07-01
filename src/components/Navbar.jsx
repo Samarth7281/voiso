@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Solutions from "../pages/Solutions";
+
 
 const Navbar = ({ showSolutions, setShowSolutions }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showMobileSolutions, setShowMobileSolutions] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -103,9 +106,33 @@ const Navbar = ({ showSolutions, setShowSolutions }) => {
       >
         <div className="px-4 sm:px-6 py-4">
           <div className="flex flex-col space-y-3 text-[16px] font-medium text-black">
-            <span className="cursor-pointer hover:text-[#FF2F80] transition-colors py-2">
-              Solutions
+            {/* Solutions with arrow and dropdown */}
+            <span
+              className="cursor-pointer hover:text-[#FF2F80] transition-colors py-2 flex items-center justify-between"
+              onClick={() => setShowMobileSolutions((prev) => !prev)}
+            >
+              <span>Solutions</span>
+              {/* Arrow icon */}
+              <svg
+                className={`w-3 h-3 ml-2 transition-transform ${
+                  showMobileSolutions ? "rotate-180" : "rotate-0"
+                }`}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
             </span>
+            {/* Dropdown for Solutions */}
+            {showMobileSolutions && (
+              <div className="flex flex-col items-center space-y-2 py-2">
+                {/* Example first column items, replace with actual items as needed */}
+                <Solutions/>
+              </div>
+            )}
+            {/* Other menu items */}
             <span className="cursor-pointer hover:text-[#FF2F80] transition-colors py-2">
               Integrations
             </span>

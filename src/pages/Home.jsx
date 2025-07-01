@@ -39,7 +39,7 @@ const Home = () => {
           <Solutions />
         </div>
       )}
-      <main className="w-full pt-[85px]">
+      <main className={`w-full pt-[85px] ${showSolutions ? "filter blur-sm transition-all" : ""}`}>
         <div className="w-full">
           <div className="flex flex-col lg:flex-row mx-4 lg:mx-[128px] pt-8 lg:pt-[116px] pb-8 lg:pb-[22px]">
             <div className="w-full lg:w-[600.4px] h-auto lg:h-[505.4px] mb-4 lg:mb-0 lg:pr-[32px] space-y-4 text-center lg:text-left">
