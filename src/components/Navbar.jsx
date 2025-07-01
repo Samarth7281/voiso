@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Solutions from "../pages/Solutions";
 
-
 const Navbar = ({ showSolutions, setShowSolutions }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [showMobileSolutions, setShowMobileSolutions] = useState(false);
@@ -115,21 +114,21 @@ const Navbar = ({ showSolutions, setShowSolutions }) => {
               {/* Arrow icon */}
               <svg
                 className={`w-3 h-3 ml-2 transition-transform ${
-                  showMobileSolutions ? "rotate-180" : "rotate-0"
+                  showMobileSolutions ? "rotate-90" : "rotate-0"
                 }`}
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
                 viewBox="0 0 24 24"
               >
-                <path d="M19 9l-7 7-7-7" />
+                <path d="M9 5l7 7-7 7" />
               </svg>
             </span>
             {/* Dropdown for Solutions */}
             {showMobileSolutions && (
               <div className="flex flex-col items-center space-y-2 py-2">
                 {/* Example first column items, replace with actual items as needed */}
-                <Solutions/>
+                <Solutions />
               </div>
             )}
             {/* Other menu items */}
