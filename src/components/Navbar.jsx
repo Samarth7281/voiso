@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
-const Navbar = () => {
+const Navbar = ({ showSolutions, setShowSolutions }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -30,9 +30,26 @@ const Navbar = () => {
 
           {/* Center: Desktop Navigation Menu */}
           <div className="hidden lg:flex flex-grow justify-center items-center space-x-6 text-[16px] font-[550] text-black">
-            <span className="cursor-pointer hover:text-[#FF2F80] transition-colors">
+            <span
+              onClick={() => setShowSolutions(!showSolutions)}
+              className={`cursor-pointer flex items-center gap-1 transition-colors relative 
+    ${showSolutions ? "text-[#236ADC]" : "text-black hover:text-[#FF2F80]"}`}
+            >
               Solutions
+              {/* Arrow icons */}
+              <svg
+                className={`w-3 h-3 transition-transform ${
+                  showSolutions ? "rotate-180" : "rotate-0"
+                }`}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
             </span>
+
             <span className="cursor-pointer hover:text-[#FF2F80] transition-colors">
               Integrations
             </span>

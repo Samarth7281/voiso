@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CarouselSection from "../components/Carousel";
+import Solutions from "./Solutions";
 
 const sectorIcons = {
   BPOs: "call.svg",
@@ -22,9 +23,22 @@ const sectorIcons = {
 };
 
 const Home = () => {
+  const [showSolutions, setShowSolutions] = useState(false);
+
   return (
     <div>
       <Navbar />
+      <Navbar
+        showSolutions={showSolutions}
+        setShowSolutions={setShowSolutions}
+      />
+
+      {/* Submenu: Appears below navbar */}
+      {showSolutions && (
+        <div className="absolute top-[4.3125rem] left-0 w-full z-40 animate-slide-down">
+          <Solutions />
+        </div>
+      )}
       <main className="w-full pt-[85px]">
         <div className="w-full">
           <div className="flex flex-col lg:flex-row mx-4 lg:mx-[128px] pt-8 lg:pt-[116px] pb-8 lg:pb-[22px]">
