@@ -33,9 +33,9 @@ const Navbar = ({ showSolutions, setShowSolutions }) => {
           {/* Left side: Logo */}
           <div className="flex-shrink-0" onClick={() => navigate("/")}>
             <img
-              src="https://voiso.com/wp-content/themes/voiso/static/images/logo-voiso-color.svg"
+              src="logo.jpg"
               alt="Voiso Logo"
-              className="h-5 sm:h-6 w-auto cursor-pointer"
+              className="h-12 w-auto cursor-pointer" // Increase height to h-16 (or more)
             />
           </div>
 
