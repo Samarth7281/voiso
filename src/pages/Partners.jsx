@@ -171,7 +171,7 @@ const Partners = () => {
         <div className="w-full max-w-[1262px] mx-auto bg-white rounded-[32px] md:rounded-[55px] p-4 md:p-12 border border-[#FF2F80]">
           <div className="w-full max-w-[752px] mx-auto text-center">
             {/* Text Content */}
-            <h1 className="text-4xl md:text-[64px] mb-2 text-black font-semibold mb-12">
+            <h1 className="text-4xl md:text-[64px] text-black font-semibold mb-12">
               Partner with Voiso
             </h1>
 

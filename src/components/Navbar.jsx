@@ -38,80 +38,81 @@ const Navbar = ({
     <>
       <div className="fixed top-0 left-0 z-50 w-full h-[4.3125rem] bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-full">
-          {/* Left side: Logo */}
-          <div className="flex-shrink-0" onClick={() => navigate("/")}>
-            <img
-              src="logo.jpg"
-              alt="Voiso Logo"
-              className="h-12 w-auto cursor-pointer" // Increase height to h-16 (or more)
-            />
-          </div>
-
-          {/* Center: Desktop Navigation Menu */}
-          <div className="hidden lg:flex flex-grow justify-center items-center space-x-6 text-[16px] font-[550] text-black">
-            <span
-              onClick={() => {
-                setShowSolutions(!showSolutions);
-                setShowAbout(false);
-              }}
-              className={`cursor-pointer flex items-center gap-1 transition-colors relative 
-    ${showSolutions ? "text-[#236ADC]" : "text-black hover:text-[#FF2F80]"}`}
-            >
-              Solutions
-              {/* Arrow icons */}
-              <svg
-                className={`w-3 h-3 transition-transform ${
-                  showSolutions ? "rotate-180" : "rotate-0"
-                }`}
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
+          {/* Left: Logo + Nav Items */}
+          <div className="flex items-center space-x-8">
+            <div className="flex-shrink-0" onClick={() => navigate("/")}>
+              <img
+                src="logo.jpg"
+                alt="Voiso Logo"
+                className="h-12 w-auto cursor-pointer"
+              />
+            </div>
+            {/* Desktop Navigation Menu */}
+            <div className="hidden lg:flex items-center space-x-6 text-[16px] font-[550] text-black">
+              <span
+                onClick={() => {
+                  setShowSolutions(!showSolutions);
+                  setShowAbout(false);
+                }}
+                className={`cursor-pointer flex items-center gap-1 transition-colors relative 
+      ${showSolutions ? "text-[#236ADC]" : "text-black hover:text-[#FF2F80]"}`}
               >
-                <path d="M19 9l-7 7-7-7" />
-              </svg>
-            </span>
-            
-            <span
-              className="cursor-pointer hover:text-[#FF2F80] transition-colors"
-              onClick={() => handleNavClick("/integrations")}
-            >
-              Integrations
-            </span>
-            <span
-              className="cursor-pointer hover:text-[#FF2F80] transition-colors"
-              onClick={() => handleNavClick("/pricing")}
-            >
-              Pricing
-            </span>
-            <span
-              className="cursor-pointer hover:text-[#FF2F80] transition-colors"
-              onClick={() => handleNavClick("/partners")}
-            >
-              Partners
-            </span>
-            <span
-              className={`cursor-pointer flex items-center gap-1 transition-colors relative ${
-                showAbout ? "text-[#236ADC]" : "text-black hover:text-[#FF2F80]"
-              }`}
-              onClick={() => {
-                setShowAbout(!showAbout);
-                setShowSolutions(false);
-              }}
-            >
-              About
-              <svg
-                className={`w-3 h-3 transition-transform ${
-                  showAbout ? "rotate-180" : "rotate-0"
-                }`}
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
+                Solutions
+                <svg
+                  className={`w-3 h-3 transition-transform ${
+                    showSolutions ? "rotate-180" : "rotate-0"
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+              <span
+                className="cursor-pointer hover:text-[#FF2F80] transition-colors"
+                onClick={() => handleNavClick("/integrations")}
               >
-                <path d="M19 9l-7 7-7-7" />
-              </svg>
-            </span>
+                Integrations
+              </span>
+              <span
+                className="cursor-pointer hover:text-[#FF2F80] transition-colors"
+                onClick={() => handleNavClick("/pricing")}
+              >
+                Pricing
+              </span>
+              <span
+                className="cursor-pointer hover:text-[#FF2F80] transition-colors"
+                onClick={() => handleNavClick("/partners")}
+              >
+                Partners
+              </span>
+              <span
+                className={`cursor-pointer flex items-center gap-1 transition-colors relative ${
+                  showAbout
+                    ? "text-[#236ADC]"
+                    : "text-black hover:text-[#FF2F80]"
+                }`}
+                onClick={() => {
+                  setShowAbout(!showAbout);
+                  setShowSolutions(false);
+                }}
+              >
+                About
+                <svg
+                  className={`w-3 h-3 transition-transform ${
+                    showAbout ? "rotate-180" : "rotate-0"
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19 9l-7 7-7-7" />
+                </svg>
+              </span>
+            </div>
           </div>
 
           {/* Right side: Buttons (Desktop) */}
