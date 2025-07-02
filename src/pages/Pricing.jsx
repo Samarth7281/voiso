@@ -89,7 +89,7 @@ const textBox = [
     label: "Fast",
     title: "Get started in less than 24 hours",
     description:
-      "We’ll get you set up with everything you need so you can start using Voiso without delay.",
+      "We'll get you set up with everything you need so you can start using Voiso without delay.",
   },
   {
     label: "Flexible",
@@ -151,7 +151,7 @@ const Pricing = () => {
             </h3>
 
             {/* Feature List */}
-            <div className="flex items-center gap-20 text-[18px] text-[#073469] mt-4">
+            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-20 text-[18px] text-[#073469] mt-4">
               <div className="flex items-center gap-2">
                 <img src="check-dark-blue.svg" alt="tick" />
                 <span>Try any plan free for 14 days</span>
@@ -168,7 +168,7 @@ const Pricing = () => {
           </div>
         </div>
 
-        <h1 className="text-[48px] font-medium text-center mb-6">
+        <h1 className="text-[32px] md:text-[48px] font-medium text-center mb-6">
           Commit more, pay less
         </h1>
         {/* Toggle Button Group */}
@@ -177,7 +177,7 @@ const Pricing = () => {
             {/* Annually */}
             <button
               onClick={() => setBillingType("annually")}
-              className={`flex items-center justify-between w-40 px-4 py-2 rounded-xl transition text-sm font-medium ${
+              className={`flex items-center justify-between w-32 md:w-40 px-4 py-2 rounded-xl transition text-sm font-medium ${
                 billingType === "annually"
                   ? "bg-blue-600 text-white"
                   : "text-gray-700"
@@ -192,7 +192,7 @@ const Pricing = () => {
             {/* Monthly */}
             <button
               onClick={() => setBillingType("monthly")}
-              className={`w-40 px-4 py-2 rounded-xl transition text-sm font-medium ${
+              className={`w-32 md:w-40 px-4 py-2 rounded-xl transition text-sm font-medium ${
                 billingType === "monthly"
                   ? "bg-blue-600 text-white"
                   : "text-gray-700"
@@ -204,7 +204,7 @@ const Pricing = () => {
         </div>
 
         {/* Pricing Cards */}
-        <div className="flex justify-between gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {pricingCards.map((card, idx) => (
             <PriceCard
               key={idx}
@@ -224,11 +224,14 @@ const Pricing = () => {
           ))}
         </div>
 
-        <div className="w-[1263.2px] h-[225.5px] border border-[#D1D1D1] flex mt-6 rounded-3xl">
+        {/* Custom Feature Section */}
+        <div className="w-full flex flex-col lg:flex-row mt-6 rounded-3xl border border-[#D1D1D1] overflow-hidden">
           {/* First Div */}
-          <div className="w-[291.8px] h-full space-y-10 p-6 border-r border-[#E0E0E0] bg-[#391F44] text-[#CC66EF] rounded-3xl">
+          <div className="w-full lg:w-1/4 space-y-10 p-6 border-b lg:border-b-0 lg:border-r border-[#E0E0E0] bg-[#391F44] text-[#CC66EF] rounded-t-3xl lg:rounded-t-none lg:rounded-l-3xl flex flex-col items-center justify-between">
             <div>
-              <h2 className="text-[34px] font-semibold">CUSTOM</h2>
+              <h2 className="text-[28px] md:text-[34px] font-semibold">
+                CUSTOM
+              </h2>
               <p className="text-[16px]">A bespoke plan designed for you.</p>
             </div>
             <button className="bg-white text-black text-[16px] font-normal px-6 py-2 rounded-2xl hover:bg-blue-700 hover:text-white transition">
@@ -237,9 +240,9 @@ const Pricing = () => {
           </div>
 
           {/* Second Div */}
-          <div className="w-[583.6px] h-[177.5px] p-6 ">
+          <div className="w-full lg:w-2/4 p-6 flex flex-col justify-center">
             <p className="font-medium mb-4">All features you need, plus...</p>
-            <div className="grid grid-cols-2 gap-x-6 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 text-sm">
               {featureList.map((feature, index) => (
                 <div key={index} className="mb-2">
                   <FeatureList feature={feature} />
@@ -249,8 +252,12 @@ const Pricing = () => {
           </div>
 
           {/* Third Div */}
-          <div className="w-[315.8px] h-[225.5px] p-6">
-            <img src="pricing_row-bg.png" alt="photo" className="h-full" />
+          <div className="hidden lg:flex w-1/4 p-6 items-center justify-center">
+            <img
+              src="pricing_row-bg.png"
+              alt="photo"
+              className="h-full object-cover rounded-r-3xl"
+            />
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-24">
@@ -259,42 +266,44 @@ const Pricing = () => {
           ))}
         </div>
 
-        <div className="w-[1264.8px] text-center py-[80px] bg-[#0b0d14] border border-gray-300 rounded-[40px] space-y-4 mt-16">
-          {/* Content goes here */}
-          <h2 className="text-[64px] font-bold bg-brand-gradient bg-clip-text text-transparent">
+        {/* Compare all plans Section */}
+        <div className="w-full max-w-5xl mx-auto text-center py-16 bg-[#0b0d14] border border-gray-300 rounded-[40px] space-y-4 mt-16 px-4 flex flex-col items-center justify-center md:mb-32">
+          <h2 className="text-3xl md:text-[64px] font-bold bg-brand-gradient bg-clip-text text-transparent leading-tight">
             Compare all plans
           </h2>
-
-          <p className="text-[22px] text-[#B3B3B3]">
+          <p className="text-lg md:text-[22px] text-[#B3B3B3]">
             Take a detailed look at all plans to view the full range of
-            <br /> features each one offers.
+            <br className="hidden md:block" /> features each one offers.
           </p>
           <button className="bg-blue-700 text-white text-[16px] border border-blue-500 font-normal px-6 py-2 rounded-full hover:bg-white hover:text-black transition">
             Compare
           </button>
         </div>
-        <div className="px-0 mx-0">
+        {/* Tailor-made support plans Section */}
+        <div className="w-full px-0 mx-0 mt-8 md:mt-0">
           <div
-            className="h-[670.6px] py-[56px] my-[56px] bg-gray-100 bg-cover bg-center rounded-lg shadow"
+            className="w-full min-h-[300px] md:min-h-[400px] py-8 md:py-[56px] my-8 md:my-[56px] bg-gray-100 bg-cover bg-center rounded-lg shadow flex items-center justify-center"
             style={{
               backgroundImage:
                 "url('https://tf-voiso-site.s3.eu-central-1.amazonaws.com/wp-content/uploads/2025/04/BPO.jpg')",
             }}
           >
-            <div className="max-w-[1280px] mx-auto px-4 text-center bg-opacity-90">
-              <h1 className="text-[64px] font-bold mb-4 text-[#C8E0FC]">
+            <div className="w-full max-w-4xl mx-auto px-4 text-center bg-opacity-90 flex flex-col items-center justify-center">
+              <h1 className="text-3xl md:text-[64px] font-bold mb-4 text-[#C8E0FC] leading-tight">
                 Tailor-made
-                <br /> support plans
+                <br className="hidden md:block" /> support plans
               </h1>
-              <p className="mb-6 text-[22px] text-[#C8E0FC]">
+              <p className="mb-6 text-lg md:text-[22px] text-[#C8E0FC]">
                 All Voiso customers receive an entirely free setup, onboarding
-                <br />
+                <br className="hidden md:block" />
                 and dedicated email support when using our platform.
-                <br /> For customers wanting enhanced assistance — including
-                live
-                <br /> chat support, technical account management, quarterly
-                <br /> status reviews, and more — we offer premium support
-                <br /> services.
+                <br className="hidden md:block" /> For customers wanting
+                enhanced assistance — including live
+                <br className="hidden md:block" /> chat support, technical
+                account management, quarterly
+                <br className="hidden md:block" /> status reviews, and more — we
+                offer premium support
+                <br className="hidden md:block" /> services.
               </p>
               <button className="bg-blue-700 text-white text-[16px] border border-blue-500 font-normal px-6 py-2 rounded-full hover:bg-white hover:text-black transition">
                 Learn more
@@ -326,12 +335,12 @@ const Pricing = () => {
             <div className="flex flex-col divide-y divide-[#E0E0E0]">
               {[
                 "Are there any setup or maintenance fees?",
-                "Can I change my plan once it’s started?",
+                "Can I change my plan once it's started?",
                 "What discounts are available for long-term commitments?",
                 "How do I choose between monthly and long-term pricing?",
                 "Can I try Voiso before committing to a long-term plan?",
                 "Is support included in all pricing plans?",
-                "What’s the difference between monthly and annual billing?",
+                "What's the difference between monthly and annual billing?",
                 "Can I get a custom quote for my business?",
               ].map((question, idx) => (
                 <div
@@ -461,7 +470,7 @@ const Pricing = () => {
             </div>
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </div>
   );
